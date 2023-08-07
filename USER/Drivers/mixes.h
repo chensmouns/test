@@ -89,7 +89,7 @@ void Mixes_Update(void);
 void Mixes_ChannelInit(uint8_t channel);
 void Mixes_ChannelUpdate(uint8_t channel);
 uint16_t Mixes_Switchreverse(uint8_t reverse, uint16_t gimbalValCurr);
-uint16_t Mixes_Gimbalreverse(uint8_t reverse, uint16_t gimbalValCurr,uint16_t* outputcode);
+uint16_t Mixes_Gimbalreverse(uint8_t reverse, uint16_t gimbalValCurr,const uint16_t* outputcode);
 uint16_t Mixes_GimbalWeight(uint8_t weight, uint16_t gimbalValCurr);
 uint16_t Mixes_GimbalOffset(uint8_t offset, uint16_t gimbalValCurr);
 //void Get_MixesSet(void);
