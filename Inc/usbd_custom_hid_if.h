@@ -28,7 +28,7 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-
+#include "usbd_customhid.h"
 
 /* USER CODE BEGIN INCLUDE */
 
