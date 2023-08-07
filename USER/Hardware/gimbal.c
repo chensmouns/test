@@ -263,7 +263,7 @@ void gimbalTask(void* param)
     EventBits_t gimbalEvent;
     static uint16_t gimbalBuff[4] = {0};
     
-	gimbalDelayTime = Get_ProtocolDelayTime();
+	  gimbalDelayTime = Get_ProtocolDelayTime();
     
     gimbalValQueue = xQueueCreate(20,sizeof(gimbalBuff));
     while(1)
@@ -276,17 +276,17 @@ void gimbalTask(void* param)
         gimbalBuff[ELEVATOR] = 2*CHANNEL_OUTPUT_MID - Get_GimbalValue(ELEVATOR);
 
         gimbalEvent= xEventGroupWaitBits( gimbalEventHandle,
-		                                  GIMBAL_CALIBRATE_IN,
-		                                  pdTRUE,
-	                                      pdFALSE,
-		                                  0);
+																					GIMBAL_CALIBRATE_IN,
+																					pdTRUE,
+																					pdFALSE,
+																					0);
         if((gimbalEvent & GIMBAL_CALIBRATE_IN) == GIMBAL_CALIBRATE_IN)
         {
             calibrationStatus += 1;
         }
         if(calibrationStatus > 0 && calibrationStatus <= 3)
         {
-            GimbalCalibrateProcess();
+            GimbalCalibrateProcess();//校准
         }
         xQueueSend(gimbalValQueue,gimbalBuff,0);
     }
